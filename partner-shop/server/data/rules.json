@@ -1,0 +1,22 @@
+{
+  "profiles": {
+    "partner_A": {
+      "name": "Партнер A",
+      "discount_percent": 5,
+      "group_discounts": {
+        "hotends": 7
+      },
+      "rounding": 1,
+      "min_percent_of_base": 75,
+      "cart_rules": [
+        { "threshold_subtotal": 3000, "extra_discount_percent": 10 }
+      ]
+    },
+    "partner_B": {
+      "name": "Партнер B",
+      "discount_percent": 3,
+      "group_discounts": {},
+      "rounding": 1
+    }
+  }
+}

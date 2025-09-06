@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "phone": "+380978488977",
+    "password": "1234",
+    "role": "partner_A",
+    "name": "Саша",
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "phone": "+380671234567",
+    "password": "5678",
+    "role": "partner_B",
+    "name": "",
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "phone": "+380968279701",
+    "password": "adminpass",
+    "role": "admin_A",
+    "name": "",
+    "status": "active"
+  },
+  {
+    "id": 4,
+    "phone": "+380991112233",
+    "password": "adminA",
+    "role": "admin",
+    "name": "Admin A",
+    "status": "active"
+  },
+  {
+    "id": 5,
+    "phone": "+380992223344",
+    "password": "adminB",
+    "role": "admin_B",
+    "name": "Admin B",
+    "status": "active"
+  }
+]

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>ELAKSTRON Partners</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="head">
+    <div class="brand">
+      <img src="/assets/logo.svg" alt="Logo" class="brand-logo" width="32" height="32" />
+      ELAKSTRON <span>Partners</span>
+    </div>
+    <div class="search-wrap">
+      <span class="search-icon">
+        <svg width="20" height="20" fill="none" stroke="#a5afc1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="7"/><line x1="16" y1="16" x2="13.5" y2="13.5"/></svg>
+      </span>
+      <input id="search" class="search" placeholder="Пошук товарів…" />
+    </div>
+    <div class="actions">
+      <button id="btn-login" class="ghost">
+        <span class="btn-icon">
+          <svg width="20" height="20" fill="none" stroke="#a5afc1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7" r="4"/><path d="M2 18c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg>
+        </span>
+        <span>Увійти</span>
+      </button>
+      <button id="btn-update-feed" class="ghost">
+        <span class="btn-icon">
+          <svg width="20" height="20" fill="none" stroke="#a5afc1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </span>
+        <span>Оновити</span>
+      </button>
+      <button id="btn-cart" class="primary">
+        <span class="btn-icon">
+          <svg width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="17" r="1.5"/><circle cx="15.5" cy="17" r="1.5"/><path d="M2 2h2l2.6 13.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L20 6H6"/></svg>
+        </span>
+        <span>Кошик</span> <span id="cart-count" class="badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="app" class="container"></main>
+
+  <section class="videos" id="videos">
+    <details>
+      <summary>Відеоогляди</summary>
+      <div class="video-grid" id="video-grid">
+        <!-- Встав свої прев’ю/відео -->
+        <div class="video-card">Відео #1 (placeholder)</div>
+        <div class="video-card">Відео #2 (placeholder)</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- Product Modal -->
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="dialog" role="dialog" aria-modal="true">
+      <button id="modal-close" class="close">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div id="drawer" class="drawer hidden" aria-hidden="true">
+    <div class="drawer-body">
+      <div class="drawer-head">
+        <strong>Кошик</strong>
+        <button id="drawer-close" class="ghost">×</button>
+      </div>
+      <div id="cart-items"></div>
+      <div class="checkout">
+        <div>Разом: <strong id="cart-total">0</strong> UAH</div>
+        <form id="checkout-form" class="checkout-form">
+          <input name="name" placeholder="Ім'я" required />
+          <input name="phone" placeholder="Телефон" required />
+          <textarea name="note" placeholder="Коментар"></textarea>
+          <button type="submit" class="primary">Оформити замовлення</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar sidebar-compact">
+    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Розгорнути панель">
+      <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#a5afc1" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="sidebar-compact-content">
+      <div class="sidebar-compact-viewed">
+        <div class="viewed-thumb placeholder"></div>
+        <div class="viewed-thumb placeholder"></div>
+        <div class="viewed-thumb placeholder"></div>
+        <div class="viewed-thumb placeholder"></div>
+        <div class="viewed-thumb placeholder"></div>
+      </div>
+      <div class="sidebar-compact-cart">
+        <button class="sidebar-compact-cart-btn" aria-label="Кошик">
+          <svg width="28" height="28" fill="none" stroke="#a5afc1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="22" r="2"/><circle cx="20" cy="22" r="2"/><path d="M2 2h2l3.6 16.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6L22 6H6"/></svg>
+          <span class="badge">0</span>
+        </button>
+      </div>
+    </div>
+    <div class="sidebar-expanded-content" style="display:none">
+      <div class="sidebar-expanded-viewed">
+        <div class="expanded-viewed-list">
+          <div class="expanded-viewed-item">
+            <div class="expanded-viewed-thumb"></div>
+            <div class="expanded-viewed-name">Товар 1</div>
+          </div>
+          <div class="expanded-viewed-item">
+            <div class="expanded-viewed-thumb"></div>
+            <div class="expanded-viewed-name">Товар 2</div>
+          </div>
+          <div class="expanded-viewed-item">
+            <div class="expanded-viewed-thumb"></div>
+            <div class="expanded-viewed-name">Товар 3</div>
+          </div>
+          <div class="expanded-viewed-item">
+            <div class="expanded-viewed-thumb"></div>
+            <div class="expanded-viewed-name">Товар 4</div>
+          </div>
+          <div class="expanded-viewed-item">
+            <div class="expanded-viewed-thumb"></div>
+            <div class="expanded-viewed-name">Товар 5</div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-expanded-cart">
+        <div class="sidebar-expanded-cart-title">Кошик</div>
+        <div class="expanded-cart-list">
+          <div class="expanded-cart-row">
+            <span class="cart-num">1</span>
+            <span class="cart-thumb"></span>
+            <span class="cart-name">Товар A</span>
+            <span class="cart-qty">1</span>
+            <span class="cart-price">0 UAH</span>
+            <button class="cart-remove">×</button>
+          </div>
+          <div class="expanded-cart-row">
+            <span class="cart-num">2</span>
+            <span class="cart-thumb"></span>
+            <span class="cart-name">Товар B</span>
+            <span class="cart-qty">2</span>
+            <span class="cart-price">0 UAH</span>
+            <button class="cart-remove">×</button>
+          </div>
+          <div class="expanded-cart-row">
+            <span class="cart-num">3</span>
+            <span class="cart-thumb"></span>
+            <span class="cart-name">Товар C</span>
+            <span class="cart-qty">1</span>
+            <span class="cart-price">0 UAH</span>
+            <button class="cart-remove">×</button>
+          </div>
+        </div>
+        <div class="expanded-cart-total">Разом: <span>0</span> UAH</div>
+        <button class="expanded-cart-telegram-btn" disabled>
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9.04 16.87l-.39 3.47c.56 0 .8-.24 1.09-.53l2.62-2.49 5.44 3.98c1 .55 1.72.26 1.98-.92l3.6-16.84c.33-1.54-.56-2.14-1.53-1.77L2.36 9.3c-1.5.6-1.48 1.46-.27 1.85l4.6 1.44 10.7-6.74c.5-.33.96-.15.58.21" fill="#fff"/></svg>
+          Передати в чат-бот
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <div id="sidebar-admin" class="sidebar sidebar-admin hidden">
+    <div class="sidebar-admin-head">
+      <span>Адмін-панель</span>
+      <button id="sidebar-admin-close" class="close">×</button>
+    </div>
+    <div class="sidebar-admin-content">
+      <div style="margin-bottom:12px; display:flex; align-items:center; gap:16px;">
+        <label for="admin-role-select" style="font-weight:600;">Роль для перегляду цін:</label>
+        <select id="admin-role-select" style="padding:6px 10px; border-radius:8px; border:1px solid #333;">
+          <option value="user">user (звичайний)</option>
+          <option value="partner_A">partner_A</option>
+          <option value="partner_B">partner_B</option>
+          <option value="admin">admin</option>
+        </select>
+        <label for="admin-status-select" style="font-weight:600;">Статус:</label>
+        <select id="admin-status-select" style="padding:6px 10px; border-radius:8px; border:1px solid #333;">
+          <option value="active">active</option>
+          <option value="inactive">inactive</option>
+        </select>
+      </div>
+      <table id="admin-users-table">
+        <thead>
+          <tr><th>Ім'я</th><th>Роль</th><th>Статус</th><th>Ціна</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <button id="sidebar-admin-toggle" class="sidebar-admin-toggle hidden">Адмін</button>
+
+  <script src="/app.js"></script>
+</body>
+</html>
