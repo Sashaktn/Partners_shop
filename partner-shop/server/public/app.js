@@ -425,6 +425,14 @@ function render() {
       });
     }
   }
+  // --- Сортування по vendorCode від найбільшого до найменшого ---
+  filtered = filtered
+    .slice()
+    .sort((a, b) => {
+      const av = Number(a.vendorCode) || 0;
+      const bv = Number(b.vendorCode) || 0;
+      return bv - av;
+    });
   function renderAllGroup(items) {
     // Видалити попередню групу якщо є
     const prev = document.querySelector('.group.all-group');
